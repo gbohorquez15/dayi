@@ -1,0 +1,298 @@
+:root {
+    --ferrari-red: #FF2800;
+    --ferrari-yellow: #FFF200;
+    --dark-carbon: #1A1A1A;
+    --text-white: #FFFFFF;
+    --track-grey: #2C2C2C;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    background-color: var(--ferrari-red);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    color: var(--dark-carbon);
+}
+
+/* Background Elements */
+.background-track {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:
+        radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 20%),
+        radial-gradient(circle at 90% 80%, rgba(0, 0, 0, 0.1) 0%, transparent 20%);
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Main Container */
+.container {
+    position: relative;
+    z-index: 1;
+    perspective: 1000px;
+}
+
+/* Ticket Card Design */
+.ticket-card {
+    background: var(--text-white);
+    width: 90vw;
+    max-width: 400px;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    transform-style: preserve-3d;
+    transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    border-left: 8px solid var(--ferrari-yellow);
+}
+
+.ticket-card:hover {
+    transform: translateY(-5px) rotateX(2deg);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+}
+
+.ticket-header {
+    background: var(--dark-carbon);
+    color: var(--text-white);
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    font-weight: 700;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+}
+
+.ticket-body {
+    padding: 30px 20px;
+    text-align: center;
+}
+
+/* Shield / Logo */
+.shield {
+    width: 90px;
+    height: 115px;
+    background: var(--ferrari-yellow);
+    margin: 0 auto 20px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    /* Precise Ferrari Shield Shape */
+    clip-path: path('M 0 10 Q 45 0 90 10 L 90 25 Q 90 90 45 115 Q 0 90 0 25 Z');
+    -webkit-clip-path: path('M 0 10 Q 45 0 90 10 L 90 25 Q 90 90 45 115 Q 0 90 0 25 Z');
+    overflow: hidden;
+}
+
+/* The Stripes */
+.top-stripes {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 12px;
+    background: linear-gradient(90deg, #009246 33%, #FFFFFF 33%, #FFFFFF 66%, #CE2B37 66%);
+    z-index: 2;
+}
+
+.shield-content {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding-top: 10px;
+}
+
+.horse-heart {
+    font-size: 42px;
+    color: var(--dark-carbon);
+    animation: heartbeat 1.5s infinite;
+    z-index: 10;
+    margin-bottom: 20px;
+}
+
+/* The initials */
+.letter {
+    position: absolute;
+    bottom: 20px;
+    font-family: 'Times New Roman', serif;
+    font-style: italic;
+    font-weight: 700;
+    font-size: 20px;
+    color: var(--dark-carbon);
+}
+
+.letter-left {
+    left: 25px;
+}
+
+.letter-right {
+    right: 25px;
+}
+
+@keyframes heartbeat {
+    0% {
+        transform: scale(1);
+    }
+
+    15% {
+        transform: scale(1.1);
+    }
+
+    30% {
+        transform: scale(1);
+    }
+
+    45% {
+        transform: scale(1.1);
+    }
+
+    60% {
+        transform: scale(1);
+    }
+}
+
+.main-title {
+    font-weight: 900;
+    font-size: 2rem;
+    line-height: 1.1;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    font-style: italic;
+}
+
+.subtitle {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.message-content {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 30px;
+}
+
+.highlight {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    color: var(--ferrari-red);
+    font-size: 1.3rem;
+    margin-top: 10px;
+    display: block;
+    text-transform: lowercase;
+}
+
+/* Buttons */
+.buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 0 20px 30px;
+}
+
+.btn {
+    border: none;
+    padding: 15px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: lowercase;
+    letter-spacing: 1px;
+    width: 100%;
+}
+
+.btn-primary {
+    background-color: var(--ferrari-red);
+    color: var(--text-white);
+    box-shadow: 0 4px 15px rgba(255, 40, 0, 0.3);
+}
+
+.btn-primary:hover {
+    background-color: #d42200;
+    transform: scale(1.02);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    border: 2px solid var(--track-grey);
+    color: var(--track-grey);
+}
+
+.btn-secondary:hover {
+    background-color: var(--track-grey);
+    color: var(--text-white);
+}
+
+/* Celebration Overlay */
+#celebration {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Transparent background to see the Ferrari Red beneath */
+    background: transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    z-index: 2000;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    padding: 20px;
+    box-sizing: border-box;
+    /* Shadow behind text for readability on red */
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+#celebration.hidden {
+    display: none;
+}
+
+#celebration h1 {
+    font-size: 3rem;
+    color: var(--ferrari-yellow);
+    font-style: italic;
+    margin-bottom: 20px;
+    text-transform: lowercase;
+    line-height: 1.1;
+}
+
+#celebration p {
+    font-size: 1.5rem;
+    margin: 0 auto 10px;
+    width: auto;
+    max-width: 100%;
+    line-height: 1.3;
+}
+
+.location-text {
+    font-size: 1.2rem !important;
+    color: #FFFFFF;
+    font-weight: 400;
+    margin-top: 10px;
+    display: block;
+}
+
+/* Responsive */
+@media (min-width: 600px) {
+    .buttons {
+        flex-direction: row;
+    }
+}
